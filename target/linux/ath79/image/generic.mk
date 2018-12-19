@@ -701,3 +701,12 @@ define Device/yuncore_a770
   IMAGE_SIZE := 16000k
 endef
 TARGET_DEVICES += yuncore_a770
+
+define Device/tplink_tl-wdr5600-v2
+  ATH_SOC := qca9561
+  DEVICE_TITLE := TP-LINK TL-WDR5600 v2
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca9887
+  IMAGE_SIZE := 7936k
+  KERNEL := kernel-bin | append-dtb | lzma | uImage lzma
+endef
+TARGET_DEVICES += tplink_tl-wdr5600-v2
