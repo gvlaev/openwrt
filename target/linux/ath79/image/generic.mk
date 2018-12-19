@@ -751,3 +751,12 @@ define Device/zbtlink_zbt-wd323
 		     kmod-usb-serial kmod-usb-serial-cp210x uqmi
 endef
 TARGET_DEVICES += zbtlink_zbt-wd323
+
+define Device/tplink_tl-wdr5600-v2
+  ATH_SOC := qca9561
+  DEVICE_TITLE := TP-Link TL-WDR5600 v2
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca9887
+  IMAGE_SIZE := 7936k
+  KERNEL := kernel-bin | append-dtb | lzma | uImage lzma
+endef
+TARGET_DEVICES += tplink_tl-wdr5600-v2

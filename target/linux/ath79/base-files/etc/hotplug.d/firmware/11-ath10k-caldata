@@ -163,6 +163,10 @@ case "$FIRMWARE" in
 		ath10kcal_extract "art" 20480 2116
 		ath10kcal_patch_mac $(macaddr_add $(mtd_get_mac_binary info 8) +1)
 		;;
+	tplink,tl-wdr5600-v2)
+		ath10kcal_extract "factory_boot" 126976 2116
+		ath10kcal_patch_mac $(macaddr_add $(cat /sys/class/net/eth0/address) +3)
+		;;
 	ubnt,unifiac-lite|\
 	ubnt,unifiac-lr|\
 	ubnt,unifiac-mesh|\
