@@ -564,6 +564,17 @@ define Device/tplink_tl-wdr4900-v2
 endef
 TARGET_DEVICES += tplink_tl-wdr4900-v2
 
+define Device/tplink_tl-wdr5600-v2
+  SOC := qca9561
+  DEVICE_VENDOR := TP-Link
+  DEVICE_MODEL := TL-WDR5600
+  DEVICE_VARIANT := v2
+  DEVICE_PACKAGES := kmod-ath10k-ct-smallbuffers ath10k-firmware-qca9887-ct
+  IMAGE_SIZE := 7936k
+  KERNEL := kernel-bin | append-dtb | lzma | uImage lzma
+endef
+TARGET_DEVICES += tplink_tl-wdr5600-v2
+
 define Device/tplink_tl-wdr7500-v3
   $(Device/tplink-8mlzma)
   SOC := qca9558
