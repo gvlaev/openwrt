@@ -1041,6 +1041,21 @@ define Device/tplink_re650-v1
 endef
 TARGET_DEVICES += tplink_re650-v1
 
+define Device/tplink_tl-wdr8610-v3
+  $(Device/dsa-migration)
+  DEVICE_VENDOR := TP-Link
+  DEVICE_MODEL := TL-WDR8610
+  DEVICE_VARIANT := v3
+  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware
+  IMAGE_SIZE := 8064k
+  TPLINK_BOARD_ID := WDR8610V3
+  TPLINK_HWID := 0x0
+  TPLINK_HWREV := 0
+  TPLINK_HEADER_VERSION := 1
+  KERNEL := $(KERNEL_DTB) | tplink-v1-header -e -O
+endef
+TARGET_DEVICES += tplink_tl-wdr8610-v3
+
 define Device/ubnt_edgerouter_common
   $(Device/dsa-migration)
   $(Device/uimage-lzma-loader)
